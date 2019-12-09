@@ -1,20 +1,16 @@
-.homepage {
-  width: 100vw;
+.about-page {
+  width: 90vw;
   margin-left: 5vw;
 }
 
-.homepage-image {
+.about-page img {
   width: 90vw;
   height: 50vh;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.welcome-text {
-  color: var(--orangey);
-}
-
-.homepage p {
+.about-page p {
   width: 90vw;
   margin-top: 2vh;
 }

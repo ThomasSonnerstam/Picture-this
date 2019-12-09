@@ -18,12 +18,12 @@
         <?php if (isset($_SESSION["user"])) : ?>
 
             <li>
-                <a class="login" href="app/users/logout.php">Logout</a>
+                <a class="login" href="app/users/logout.php">Log out</a>
             </li>
 
         <?php else : ?>
             <li>
-                <a class="login" href="/login.php">Login</a>
+                <a class="login" href="/login.php">Log in</a>
             </li>
         <?php endif; ?>
 
