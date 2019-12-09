@@ -1,3 +1,9 @@
+:root {
+  --orangey: #f69704;
+  --grayish: #302f2f;
+  --blueish: #66a8cb;
+}
+
 *,
 *::before,
 *::after {
@@ -8,4 +14,10 @@
 
 body {
   font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  color: black;
+  text-decoration: none;
 }
