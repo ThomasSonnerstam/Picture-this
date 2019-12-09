@@ -1,0 +1,29 @@
+a {
+  color: black;
+}
+
+nav {
+  display: flex;
+  width: 100vw;
+  height: 8vh;
+  align-items: center;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+}
+
+.title {
+  margin-left: 5vw;
+  text-decoration: none;
+}
+
+.menu li {
+  margin-left: 5vw;
+}
+
+.menu li a {
+  font-size: 1.5rem;
+  text-decoration: none;
+}
