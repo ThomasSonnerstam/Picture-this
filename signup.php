@@ -11,6 +11,12 @@ require __DIR__ . '/views/header.php';
 
     <h1 class="signup-h1">Welcome to Picture This!</h1>
 
+    <p>
+        Fill in the form to create your first Picture This account!
+        <br>
+        Join millions of people and interact with eachother!
+    </p>
+
     <form action="/app/users/signup.php" method="post">
 
         <label for="firstname">First Name</label>

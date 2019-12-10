@@ -12,7 +12,7 @@
 
         <li>
             <!-- Sign up page needs to be made -->
-            <a href="/about.php">Sign Up</a>
+            <a href="/signup.php">Sign Up</a>
         </li>
 
         <?php if (isset($_SESSION["user"])) : ?>

@@ -1,8 +1,9 @@
 .signup-wrapper {
   display: flex;
-  flex-direction: column;
+  width: 90vw;
   height: 100vh;
-  background-color: var(--blueish);
+  flex-direction: column;
+  margin: 0 auto;
   align-items: center;
   justify-content: center;
 }
