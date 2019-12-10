@@ -1,0 +1,17 @@
+.signup-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: var(--blueish);
+  align-items: center;
+  justify-content: center;
+}
+
+.signup-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-wrapper h1 {
+  color: black;
+}
