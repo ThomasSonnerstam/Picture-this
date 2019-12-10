@@ -3,10 +3,6 @@
   margin-left: 5vw;
 }
 
-.login-page h1 {
-  color: var(--blueish);
-}
-
 .login-page form {
   width: 90vw;
   display: flex;
@@ -16,18 +12,6 @@
 .login-page label {
   font-size: 1.2rem;
   margin-bottom: 2vh;
-}
-
-.login-page input {
-  border: 1px solid var(--orangey);
-  width: 50vw;
-  height: 6vh;
-  padding-left: 2vw;
-  margin-bottom: 2vh;
-}
-
-.login-page input:focus {
-  outline: none;
 }
 
 .login-page button {

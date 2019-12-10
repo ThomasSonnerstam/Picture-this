@@ -1,18 +1,30 @@
 .signup-wrapper {
   display: flex;
   width: 90vw;
-  height: 100vh;
+  min-height: 92vh;
+  max-height: 92vh;
   flex-direction: column;
   margin: 0 auto;
-  align-items: center;
-  justify-content: center;
 }
 
 .signup-wrapper form {
   display: flex;
   flex-direction: column;
+  margin-top: 3vh;
 }
 
 .signup-wrapper h1 {
   color: black;
+}
+
+.signup-wrapper input {
+  margin-top: 1vh;
+}
+
+.signup-wrapper button {
+  width: 25vw;
+  height: 6vh;
+  margin-top: 2vh;
+  background-color: #fff;
+  border: 1px solid var(--orangey);
 }
