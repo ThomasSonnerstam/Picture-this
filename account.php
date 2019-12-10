@@ -16,10 +16,10 @@ require __DIR__ . '/views/header.php';
             <label for="oldpassword">Old password</label>
             <input type="password" name="oldpassword" id="oldpassword">
 
-            <label for="password">New Password</label>
+            <label for="password">New password</label>
             <input type="password" name="password" id="password">
 
-            <label for="passwordrepeat">Repeat new Password</label>
+            <label for="passwordrepeat">Repeat new password</label>
             <input type="password" name="passwordrepeat" id="passwordrepeat">
 
             <div class="account-buttons">
