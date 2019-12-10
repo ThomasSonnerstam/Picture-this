@@ -3,29 +3,38 @@
 declare(strict_types=1);
 
 require __DIR__ . '/views/header.php';
+
 ?>
 
-<section class="edit-account">
+<?php if (isset($_SESSION["user"])) : ?>
 
-    <h2>Change password</h2>
-    <form action="/app/users/account.php" method="post">
+    <section class="edit-account">
 
-        <label for="password">New Password</label>
-        <input type="password" name="password" id="password">
+        <h2>Change password</h2>
+        <form action="/app/users/account.php" method="post">
 
-        <label for="passwordrepeat">Repeat new Password</label>
-        <input type="password" name="passwordrepeat" id="passwordrepeat">
+            <label for="password">New Password</label>
+            <input type="password" name="password" id="password">
 
-        <div class="account-buttons">
-            <button type="submit">Reset password</button>
+            <label for="passwordrepeat">Repeat new Password</label>
+            <input type="password" name="passwordrepeat" id="passwordrepeat">
 
-            <button class="logout">
-                <a href="/app/users/logout.php">Log out</a>
-            </button>
-        </div>
+            <div class="account-buttons">
+                <button type="submit">Reset password</button>
 
-    </form>
+                <button class="logout">
+                    <a href="/app/users/logout.php">Log out</a>
+                </button>
+            </div>
 
-</section>
+        </form>
+
+    </section>
+
+<?php else : ?>
+
+    <h2 class="must-log-in">Log in to see your account settings</h2>
+
+<?php endif; ?>
 
 <?php require __DIR__ . '/views/footer.php';

@@ -21,3 +21,7 @@
   background-color: var(--orangey);
   border: 1px solid black;
 }
+
+.must-log-in {
+  margin: 5vh 0 0 5vw;
+}
