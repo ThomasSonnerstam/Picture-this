@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+$_SESSION["message"] = [
+    "created" => "You have successfully created an account!"
+];
+
 if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["password"])) {
     // Input variables and sanitation
     $firstName = trim(filter_var($_POST["firstname"], FILTER_SANITIZE_STRING));
@@ -22,6 +26,5 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
         ":password" => $password
     ]);
 
-    sleep(2);
-    redirect("/login.php");
+    redirect("/signup.php");
 }

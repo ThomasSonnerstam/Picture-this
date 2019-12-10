@@ -19,7 +19,6 @@ if (isset($_POST["email"], $_POST["password"])) {
     );
     $users = $statement->fetch(PDO::FETCH_ASSOC);
 
-
     // Email and password from user database
     $userEmail = $users["email"];
     $userPassword = $users["password"];
@@ -33,7 +32,7 @@ if (isset($_POST["email"], $_POST["password"])) {
     if (password_verify($password, $userPassword)) {
         $_SESSION["user"] = [
             "id" => $users["id"],
-            "name" => $users["name"],
+            "name" => $users["first_name"],
             "email" => $users["email"]
         ];
         redirect("/");

@@ -4,34 +4,49 @@ declare(strict_types=1);
 
 require __DIR__ . '/views/header.php';
 
-?>
+if (isset($_SESSION["message"])) : ?>
 
-<section class="signup-wrapper">
+    <h2>
+        <?php echo $_SESSION["message"]["created"]; ?>
+    </h2>
 
-    <h1 class="signup-h1">Create your account here!</h1>
 
-    <p>
-        Fill in the form to create your first Picture This account! Join millions of people and interact with eachother!
-    </p>
+    <?php unset($_SESSION["message"]); ?>
 
-    <form action="/app/users/signup.php" method="post">
+<?php else : ?>
 
-        <label for="firstname">First Name</label>
-        <input type="text" name="firstname" id="firstname" required>
+    <section class="signup-wrapper">
 
-        <label for="lastname">Last Name</label>
-        <input type="text" name="lastname" id="lastname" required>
 
-        <label for="email">Email</label>
-        <input type="text" name="email" id="email" required>
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required>
 
-        <button type="submit">Create account</button>
 
-    </form>
+        <h1 class="signup-h1">Create your account here!</h1>
 
-</section>
+        <p>
+            Fill in the form to create your first Picture This account! Join millions of people and interact with eachother!
+        </p>
+
+        <form action="/app/users/signup.php" method="post">
+
+            <label for="firstname">First Name</label>
+            <input type="text" name="firstname" id="firstname" required>
+
+            <label for="lastname">Last Name</label>
+            <input type="text" name="lastname" id="lastname" required>
+
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required>
+
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+
+            <button class="create-account-button" type="submit">Create account</button>
+
+        </form>
+
+    </section>
+
+<?php endif; ?>
 
 <?php require __DIR__ . '/views/footer.php'; ?>
