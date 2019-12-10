@@ -6,15 +6,6 @@ require __DIR__ . '/views/header.php';
 
 ?>
 
-<?php if (isset($_SESSION["user"])) : ?>
-
-    <h3>
-        You're already logged in. Why would you need two accounts?
-    </h3>
-
-
-<?php endif; ?>
-
 <section class="signup-wrapper">
 
     <?php if (isset($_SESSION["message"])) : ?>
@@ -22,7 +13,6 @@ require __DIR__ . '/views/header.php';
         <h2>
             <?php echo $_SESSION["message"]["created"]; ?>
         </h2>
-
 
         <?php unset($_SESSION["message"]); ?>
 
