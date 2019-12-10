@@ -26,5 +26,20 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
         ":password" => $password
     ]);
 
-    redirect("/signup.php");
+    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $statement->execute(
+        [
+            ":email" => $email
+        ]
+    );
+
+    $users = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $_SESSION["user"] = [
+        "id" => $users["id"],
+        "name" => $users["first_name"],
+        "email" => $users["email"]
+    ];
+
+    redirect("/");
 }

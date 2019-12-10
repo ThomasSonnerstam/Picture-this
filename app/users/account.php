@@ -5,9 +5,9 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) {
-    $oldPassword = password_hash($_POST["oldpassword"], PASSWORD_DEFAULT);
-    $newPassword = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $newPasswordRepeat = password_hash($_POST["passwordrepeat"], PASSWORD_DEFAULT);
+    $oldPassword = $_POST["oldpassword"];
+    $newPassword = $_POST["password"];
+    $newPasswordRepeat = $_POST["passwordrepeat"];
 
     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
     $statement->execute([
@@ -17,14 +17,14 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
 
     $oldPasswordInfo = $user["password"];
 
-    if ($oldPasswordInfo === $oldPassword && $newPassword === $newPasswordRepeat && $newPassword !== $oldPassword) {
+    if (password_verify($oldPassword, $oldPasswordInfo) && $newPassword === $newPasswordRepeat && $newPassword !== $oldPassword) {
         $changeQuery = $pdo->prepare("UPDATE users SET password = :newpassword WHERE id = :id");
         $changeQuery->execute([
-            ":newpassword" => $newPassword,
+            ":newpassword" => password_hash($newPassword, PASSWORD_DEFAULT),
             ":id" => $_SESSION["user"]["id"]
         ]);
 
-        redirect("/logout.php");
+        redirect("/app/users/logout.php");
     } else {
         die(var_dump($pdo->errorInfo()));
     }
