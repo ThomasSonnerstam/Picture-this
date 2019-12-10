@@ -4,22 +4,29 @@ declare(strict_types=1);
 
 require __DIR__ . '/views/header.php';
 
-if (isset($_SESSION["message"])) : ?>
+?>
 
-    <h2>
-        <?php echo $_SESSION["message"]["created"]; ?>
-    </h2>
+<?php if (isset($_SESSION["user"])) : ?>
 
-
-    <?php unset($_SESSION["message"]); ?>
-
-<?php else : ?>
-
-    <section class="signup-wrapper">
+    <h3>
+        You're already logged in. Why would you need two accounts?
+    </h3>
 
 
+<?php endif; ?>
+
+<section class="signup-wrapper">
+
+    <?php if (isset($_SESSION["message"])) : ?>
+
+        <h2>
+            <?php echo $_SESSION["message"]["created"]; ?>
+        </h2>
 
 
+        <?php unset($_SESSION["message"]); ?>
+
+    <?php else : ?>
 
         <h1 class="signup-h1">Create your account here!</h1>
 
@@ -45,7 +52,7 @@ if (isset($_SESSION["message"])) : ?>
 
         </form>
 
-    </section>
+</section>
 
 <?php endif; ?>
 

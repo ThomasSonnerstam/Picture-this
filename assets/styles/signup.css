@@ -17,6 +17,11 @@
   color: black;
 }
 
+.signup-wrapper h2 {
+  margin-top: 5vh;
+  text-align: center;
+}
+
 .signup-wrapper input {
   margin-top: 1vh;
 }
