@@ -13,6 +13,9 @@ require __DIR__ . '/views/header.php';
         <h2>Change password</h2>
         <form action="/app/users/account.php" method="post">
 
+            <label for="oldpassword">Old password</label>
+            <input type="password" name="oldpassword" id="oldpassword">
+
             <label for="password">New Password</label>
             <input type="password" name="password" id="password">
 
