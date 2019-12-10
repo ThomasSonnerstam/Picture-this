@@ -12,6 +12,7 @@
 
 .welcome-text {
   color: var(--orangey);
+  margin-top: 3vh;
 }
 
 .homepage p {

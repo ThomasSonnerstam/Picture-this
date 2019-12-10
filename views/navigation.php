@@ -14,7 +14,7 @@
         <?php if (isset($_SESSION["user"])) : ?>
 
             <li>
-                <a class="login" href="app/users/logout.php">Log out</a>
+                <a class="login" href="/account.php">Account</a>
             </li>
 
         <?php else : ?>
