@@ -30,6 +30,7 @@ if (isset($_POST["email"], $_POST["password"])) {
         redirect("/login.php");
     }
 
+    // If the entered password matches the one in the database a session will start
     if (password_verify($password, $userPassword)) {
         $_SESSION["user"] = [
             "id" => $users["id"],

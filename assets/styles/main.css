@@ -1,48 +1,57 @@
 :root {
-  --orangey: #f69704;
-  --grayish: #302f2f;
-  --blueish: #66a8cb;
+    --orangey: #f69704;
+    --grayish: #302f2f;
+    --blueish: #66a8cb;
 }
 
 *,
 *::before,
 *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
-  overflow-x: hidden;
-  background-color: var(--blueish);
+    font-family: "Montserrat", sans-serif;
+    overflow-x: hidden;
+    /* background-color: var(--blueish); */
+    background-color: white;
 }
 
 h1 {
-  color: black;
+    color: black;
 }
 
 a {
-  color: black;
-  text-decoration: none;
+    color: black;
+    text-decoration: none;
 }
 
 input {
-  border: 1px solid var(--orangey);
-  width: 50vw;
-  height: 6vh;
-  padding-left: 2vw;
-  margin-bottom: 2vh;
+    border: 1px solid var(--orangey);
+    width: 50vw;
+    height: 6vh;
+    padding-left: 2vw;
+    margin-bottom: 2vh;
 }
 
 input:focus {
-  outline: none;
+    outline: none;
 }
 
 p.error {
-  color: red;
+    color: red;
+}
+
+button {
+    width: 25vw;
+    height: 6vh;
+    margin-top: 2vh;
+    background-color: #fff;
+    border: 1px solid var(--orangey);
 }

@@ -1,27 +1,53 @@
+/* EDIT ACCOUNT */
 .edit-account {
-  margin: 5vh 0 0 5vw;
+    margin: 5vh 0 0 5vw;
 }
 
 .edit-account form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
 }
 
 .edit-account button {
-  width: 25vw;
-  height: 5vh;
-  background-color: white;
-  border: 1px solid var(--orangey);
-  margin-bottom: 2vh;
+    width: 25vw;
+    height: 5vh;
+    background-color: white;
+    border: 1px solid var(--orangey);
+    margin-bottom: 2vh;
 }
 
 .edit-account button.logout {
-  width: 23.5vw;
-  background-color: var(--orangey);
-  border: 1px solid black;
+    width: 23.5vw;
+    background-color: var(--orangey);
+    border: 1px solid black;
 }
 
-.must-log-in {
-  margin: 5vh 0 0 5vw;
+/* BIOGRAPHY */
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    width: 90vw;
+    margin: 0 auto;
+}
+
+.profile-picture {
+    width: 40vw;
+    height: auto;
+    align-self: center;
+}
+
+.biography-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.biography {
+    resize: none;
+    padding: 5px;
+    border: 1px solid var(--orangey);
+}
+
+.biography:focus {
+    outline: none;
 }
