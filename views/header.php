@@ -12,6 +12,7 @@ require __DIR__ . '/../app/autoload.php';
     <title><?php echo $config['title']; ?></title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/sanitize.css@11.0.0/sanitize.css">
+    <link rel="shortcut icon" href="/assets/images/ptlogo.png" type="image/x-icon">
     <link rel="stylesheet" href="/assets/styles/nav.css">
     <link rel="stylesheet" href="/assets/styles/main.css">
     <link rel="stylesheet" href="/assets/styles/homepage.css">

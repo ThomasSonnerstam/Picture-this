@@ -1,31 +1,32 @@
 nav {
-  display: flex;
-  width: 100vw;
-  height: 8vh;
-  justify-content: space-between;
-  align-items: center;
+    display: flex;
+    width: 100vw;
+    height: 8vh;
+    justify-content: space-between;
+    align-items: center;
+    /* background-color: var(--blueish); */
 }
 
 nav img {
-  width: 30px;
-  height: auto;
-  margin-left: 5vw;
+    width: auto;
+    height: 90%;
+    margin-left: 5vw;
 }
 
 .menu {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .menu li {
-  margin-right: 5vw;
+    margin-right: 5vw;
 }
 
 .menu li a {
-  font-size: 1rem;
+    font-size: 1rem;
 }
 
 .login {
-  color: var(--orangey);
+    color: var(--orangey);
 }

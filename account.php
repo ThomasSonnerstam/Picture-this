@@ -18,9 +18,16 @@ if (!isset($_SESSION["user"])) {
     </h3>
     <form class="biography-wrapper" action="/app/users/account.php" method="post">
 
-        <textarea class="biography" maxlength="240" name="biography" cols="30" rows="10">
+        <textarea placeholder="Write your biography here" class="biography" name="biography" cols="30" rows="10">
             <?php echo $biography["biography"]; ?>
         </textarea>
+
+        <?php if (isset($_SESSION["bioTooLong"])) : ?>
+            <p class="error">
+                <?php echo $_SESSION["bioTooLong"]; ?>
+                <?php unset($_SESSION["bioTooLong"]); ?>
+            </p>
+        <?php endif; ?>
 
         <button type=" submit">
             Update bio
@@ -32,6 +39,22 @@ if (!isset($_SESSION["user"])) {
 
 <!-- EDIT ACCOUNT SETTINGS -->
 <section class="edit-account">
+
+    <h2>Change email</h2>
+
+    <form action="/app/users/account.php" method="post">
+
+        <label for="email">Your current email</label>
+        <input type="email" name="email" id="email">
+
+        <label for="emailnew">New email</label>
+        <input type="email" name="emailnew" id="emailnew">
+
+
+    </form>
+
+
+
 
     <h2>Change password</h2>
     <form action="/app/users/account.php" method="post">

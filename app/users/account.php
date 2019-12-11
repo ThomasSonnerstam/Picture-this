@@ -9,11 +9,7 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
     $newPassword = $_POST["password"];
     $newPasswordRepeat = $_POST["passwordrepeat"];
 
-    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-    $statement->execute([
-        ":id" => $_SESSION["user"]["id"]
-    ]);
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $user = getUsersById($pdo);
 
     $oldPasswordInfo = $user["password"];
 
@@ -34,20 +30,22 @@ if (isset($_POST["biography"])) {
 
     $biographyText = trim(filter_var($_POST["biography"], FILTER_SANITIZE_STRING));
 
-    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-    $statement->execute([
-        ":id" => $_SESSION["user"]["id"]
-    ]);
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $user = getUsersById($pdo);
 
     $storedBio = $user['biography'];
 
     $statement = $pdo->prepare("UPDATE users SET biography = :biography WHERE id = :id");
 
-    $statement->execute([
-        ":biography" => $biographyText,
-        ":id" => $_SESSION["user"]["id"]
-    ]);
+    if (strlen($biographyText) <= 240) {
 
-    redirect("/account.php");
+        $statement->execute([
+            ":biography" => $biographyText,
+            ":id" => $_SESSION["user"]["id"]
+        ]);
+
+        redirect("/account.php");
+    } else {
+        $_SESSION["bioTooLong"] = "Your biography has a max limit of 240 characters.";
+        redirect("/account.php");
+    }
 }

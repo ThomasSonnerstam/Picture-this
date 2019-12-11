@@ -25,11 +25,28 @@ if (!function_exists('redirect')) {
  * @param string $email
  * @return void
  */
-function createSessionUser(array $users): array
+// function createSessionUser(array $users): array
+// {
+//     return [
+//         "id" => $users["id"],
+//         "name" => $users["name"],
+//         "email" => $users["email"]
+//     ];
+// }
+
+
+/**
+ * Function to get the data from the current logged in user.
+ *
+ * @param object $pdo
+ * @return array
+ */
+function getUsersById(object $pdo): array
 {
-    return [
-        "id" => $users["id"],
-        "name" => $users["name"],
-        "email" => $users["email"]
-    ];
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+    $statement->execute([
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user;
 }

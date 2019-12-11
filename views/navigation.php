@@ -1,5 +1,5 @@
 <nav>
-    <img src="/assets/images/favicon.png" alt="The Picture This image">
+    <img src="/assets/images/ptlogo.png" alt="The Picture This image">
 
     <ul class="menu">
 
