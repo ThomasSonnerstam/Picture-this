@@ -40,6 +40,7 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
         "name" => $users["first_name"],
         "email" => $users["email"]
     ];
+    // createSessionUser($users);
 
     redirect("/");
 }

@@ -35,6 +35,7 @@ if (isset($_POST["email"], $_POST["password"])) {
             "name" => $users["first_name"],
             "email" => $users["email"]
         ];
+        // createSessionUser($users);
         redirect("/");
     }
 }
