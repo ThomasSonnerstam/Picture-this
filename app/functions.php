@@ -50,3 +50,15 @@ function getUsersById(object $pdo): array
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     return $user;
 }
+
+/**
+ * Creates a message array
+ *
+ * @param string $errorName
+ * @param string $errorContent
+ * @return void
+ */
+function createMessage(string $errorName, string $errorContent): void
+{
+    $_SESSION["$errorName"] = "$errorContent";
+}

@@ -35,6 +35,8 @@
     width: 40vw;
     height: auto;
     align-self: center;
+    border: 1px solid var(--orangey);
+    border-radius: 100%;
 }
 
 .biography-wrapper {

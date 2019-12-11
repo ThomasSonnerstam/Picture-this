@@ -42,19 +42,45 @@ if (!isset($_SESSION["user"])) {
 
     <h2>Change email</h2>
 
+    <?php if (isset($_SESSION["emailChanged"])) : ?>
+        <p class="success">
+            <?php echo $_SESSION["emailChanged"]; ?>
+            <?php unset($_SESSION["emailChanged"]); ?>
+        </p>
+    <?php endif; ?>
+
     <form action="/app/users/account.php" method="post">
 
         <label for="email">Your current email</label>
         <input type="email" name="email" id="email">
 
+        <?php if (isset($_SESSION["emailClash"])) : ?>
+            <p class="error">
+                <?php echo $_SESSION["emailClash"]; ?>
+                <?php unset($_SESSION["emailClash"]); ?>
+            </p>
+        <?php endif; ?>
+
         <label for="emailnew">New email</label>
         <input type="email" name="emailnew" id="emailnew">
 
+        <?php if (isset($_SESSION["emailIsSame"])) : ?>
+            <p class="error">
+                <?php echo $_SESSION["emailIsSame"]; ?>
+                <?php unset($_SESSION["emailIsSame"]); ?>
+            </p>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION["emailAlreadyExists"])) : ?>
+            <p class="error">
+                <?php echo $_SESSION["emailAlreadyExists"]; ?>
+                <?php unset($_SESSION["emailAlreadyExists"]); ?>
+            </p>
+        <?php endif; ?>
+
+        <button type="submit">Change email</button>
 
     </form>
-
-
-
 
     <h2>Change password</h2>
     <form action="/app/users/account.php" method="post">
@@ -79,5 +105,7 @@ if (!isset($_SESSION["user"])) {
     </form>
 
 </section>
+
+<script src="/assets/scripts/account.js"></script>
 
 <?php require __DIR__ . '/views/footer.php';
