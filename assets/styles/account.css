@@ -45,6 +45,7 @@
 .biography {
     resize: none;
     padding: 5px;
+    height: 20vh;
     border: 1px solid var(--orangey);
     margin-top: 3vh;
 }

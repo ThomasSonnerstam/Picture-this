@@ -1,6 +1,7 @@
 <?php
 
 require __DIR__ . '/views/header.php';
+require __DIR__ . '/app/users/showbiography.php';
 
 if (!isset($_SESSION["user"])) {
     redirect("/");
@@ -17,11 +18,11 @@ if (!isset($_SESSION["user"])) {
     </h3>
     <form class="biography-wrapper" action="/app/users/account.php" method="post">
 
-        <textarea class="biography" maxlength="240" name="" id="" cols="30" rows="10">
-
+        <textarea class="biography" maxlength="240" name="biography" cols="30" rows="10">
+            <?php echo $biography["biography"]; ?>
         </textarea>
 
-        <button type="submit">
+        <button type=" submit">
             Update bio
         </button>
 
