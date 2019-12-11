@@ -25,11 +25,9 @@ if (isset($_POST["email"], $_POST["password"])) {
     // the login page
     if ($email !== $userEmail) {
 
-        $_SESSION["emailError"] = [
-            "wrongEmail" => "This email does not exist in our database"
-        ];
+        $_SESSION["emailError"] = "This email does not exist in our database";
 
-        redirect("/../../login.php");
+        redirect("/login.php");
     }
 
     if (password_verify($password, $userPassword)) {
@@ -41,9 +39,7 @@ if (isset($_POST["email"], $_POST["password"])) {
         // createSessionUser($users);
         redirect("/");
     } else {
-        $_SESSION["passwordError"] = [
-            "wrongPassword" => "Wrong password. Try again!"
-        ];
-        redirect("/../../login.php");
+        $_SESSION["passwordError"] = "Wrong password. Try again!";
+        redirect("/login.php");
     }
 }

@@ -42,3 +42,7 @@ input {
 input:focus {
   outline: none;
 }
+
+p.error {
+  color: red;
+}

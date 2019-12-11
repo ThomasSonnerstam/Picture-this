@@ -9,8 +9,8 @@
         <input type="email" name="email" placeholder="Enter email here" required>
 
         <?php if (isset($_SESSION["emailError"])) : ?>
-            <p>
-                <?php echo $_SESSION["emailError"]["wrongEmail"];
+            <p class="error">
+                <?php echo $_SESSION["emailError"];
                     unset($_SESSION["emailError"]); ?>
             </p>
         <?php endif; ?>
@@ -19,8 +19,8 @@
         <input type="password" name="password" required placeholder="Enter password here">
 
         <?php if (isset($_SESSION["passwordError"])) : ?>
-            <p>
-                <?php echo $_SESSION["passwordError"]["wrongPassword"];
+            <p class="error">
+                <?php echo $_SESSION["passwordError"];
                     unset($_SESSION["passwordError"]); ?>
             </p>
         <?php endif; ?>
