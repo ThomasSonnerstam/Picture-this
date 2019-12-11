@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we login users.
-
 // Checks if the email & password inputs have any text
 if (isset($_POST["email"], $_POST["password"])) {
     $email = trim(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
@@ -26,7 +24,12 @@ if (isset($_POST["email"], $_POST["password"])) {
     // If you enter an email that does not exist, you're redirected to 
     // the login page
     if ($email !== $userEmail) {
-        redirect("/login.php");
+
+        $_SESSION["emailError"] = [
+            "wrongEmail" => "This email does not exist in our database"
+        ];
+
+        redirect("/../../login.php");
     }
 
     if (password_verify($password, $userPassword)) {
@@ -37,5 +40,10 @@ if (isset($_POST["email"], $_POST["password"])) {
         ];
         // createSessionUser($users);
         redirect("/");
+    } else {
+        $_SESSION["passwordError"] = [
+            "wrongPassword" => "Wrong password. Try again!"
+        ];
+        redirect("/../../login.php");
     }
 }
