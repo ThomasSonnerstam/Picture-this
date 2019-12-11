@@ -31,6 +31,13 @@ require __DIR__ . '/views/header.php';
                 unset($_SESSION["emailNotValid"]); ?>
             </p>
         <?php endif; ?>
+        <?php if (isset($_SESSION["emailAlreadyExists"])) : ?>
+            <p class="error">
+                <?php echo $_SESSION["emailAlreadyExists"]; ?>
+                <?php unset($_SESSION["emailAlreadyExists"]); ?>
+            </p>
+
+        <?php endif; ?>
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>

@@ -25,11 +25,11 @@ if (!function_exists('redirect')) {
  * @param string $email
  * @return void
  */
-// function createSessionUser(int $id, string $name, string $email): void
-// {
-//     $_SESSION["user"] = [
-//         "id" => $users[$id],
-//         "name" => $users[$name],
-//         "email" => $users[$email]
-//     ];
-// }
+function createSessionUser(array $users): array
+{
+    return [
+        "id" => $users["id"],
+        "name" => $users["name"],
+        "email" => $users["email"]
+    ];
+}

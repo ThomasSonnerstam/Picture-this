@@ -5,20 +5,25 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["password"])) {
-    // Input variables and sanitation
+    // Input variables, validation and sanitation
     $firstName = trim(filter_var($_POST["firstname"], FILTER_SANITIZE_STRING));
     $lastName = trim(filter_var($_POST["lastname"], FILTER_SANITIZE_STRING));
     $email = trim(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
     $validatedEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-    $statement = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)");
-    if (!$statement) {
-        die(var_dump($pdo->errorInfo()));
-    }
+    $getEmailQuery = $pdo->prepare("SELECT * FROM users WHERE email = :email");
 
-    if ($validatedEmail) {
-        $_SESSION["emailNotValid"] = "This email is not valid";
+    $getEmailQuery->execute(
+        [
+            ":email" => $validatedEmail
+        ]
+    );
+
+    $users = $getEmailQuery->fetchAll(PDO::FETCH_ASSOC);
+
+    if ($users === []) {
+        $statement = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)");
         $statement->execute([
             ":firstname" => $firstName,
             ":lastname" => $lastName,
@@ -26,30 +31,26 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
             ":password" => $password
         ]);
 
-        $_SESSION["message"] = "You have successfully created an account!";
+        $createdUser = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+        $createdUser->execute([
+            ":email" => $validatedEmail
+        ]);
+
+        $createdUserData = $createdUser->fetch(PDO::FETCH_ASSOC);
+
+        $_SESSION["user"] = [
+            "id" => $createdUserData["id"],
+            "name" => $createdUserData["first_name"],
+            "email" => $createdUserData["email"]
+        ];
+        // createSessionUser($createdUserData);
+        redirect("/");
+    } elseif (!empty($users)) {
+        $_SESSION["emailAlreadyExists"] = "This mail already exists in our database.";
+        redirect("/signup.php");
     } else {
         $_SESSION["emailNotValid"] = "This email is not valid";
         redirect("/signup.php");
     }
-
-    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-
-
-
-    $statement->execute(
-        [
-            ":email" => $validatedEmail
-        ]
-    );
-
-    $users = $statement->fetch(PDO::FETCH_ASSOC);
-
-    $_SESSION["user"] = [
-        "id" => $users["id"],
-        "name" => $users["first_name"],
-        "email" => $users["email"]
-    ];
-    // createSessionUser($users);
-
-    redirect("/");
 }
+redirect("/");

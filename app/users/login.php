@@ -36,7 +36,7 @@ if (isset($_POST["email"], $_POST["password"])) {
             "name" => $users["first_name"],
             "email" => $users["email"]
         ];
-        // createSessionUser($users);
+        // $_SESSION["user"] = createSessionUser($users);
         redirect("/");
     } else {
         $_SESSION["passwordError"] = "Wrong password. Try again!";
