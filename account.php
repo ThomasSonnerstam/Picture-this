@@ -8,28 +8,28 @@ if (!isset($_SESSION["user"])) {
 
 ?>
 
+<!-- PROFILE INFORMATION -->
 <section class="profile-info">
 
     <img class="profile-picture" src="/app/profile-pictures/pikachu.png" alt="">
     <h3>
         <?php echo $_SESSION["user"]["name"]; ?>
     </h3>
-    <div class="biography-wrapper">
+    <form class="biography-wrapper" action="/app/users/account.php" method="post">
+
         <textarea class="biography" maxlength="240" name="" id="" cols="30" rows="10">
 
-
         </textarea>
-        
-        <button>
+
+        <button type="submit">
             Update bio
         </button>
-    </div>
 
-
-
+    </form>
 
 </section>
 
+<!-- EDIT ACCOUNT SETTINGS -->
 <section class="edit-account">
 
     <h2>Change password</h2>

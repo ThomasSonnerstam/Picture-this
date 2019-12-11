@@ -11,7 +11,7 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
 
     $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
     $statement->execute([
-        "id" => $_SESSION["user"]["id"]
+        ":id" => $_SESSION["user"]["id"]
     ]);
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
@@ -28,4 +28,26 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
     } else {
         die(var_dump($pdo->errorInfo()));
     }
+}
+
+if (isset($_POST["biography"])) {
+
+    $biographyText = trim(filter_var($_POST["biography"], FILTER_SANITIZE_STRING));
+
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+    $statement->execute([
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    $storedBio = $user['biography'];
+
+    $statement = $pdo->prepare("UPDATE users SET biography = :biography WHERE id = :id");
+
+    $statement->execute([
+        ":biography" => $biographyText,
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+
+    redirect("/account.php");
 }

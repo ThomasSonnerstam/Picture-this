@@ -46,6 +46,7 @@
     resize: none;
     padding: 5px;
     border: 1px solid var(--orangey);
+    margin-top: 3vh;
 }
 
 .biography:focus {
