@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+// Update your biography
+
 if (isset($_POST["biography"])) {
 
     $biographyText = trim(filter_var($_POST["biography"], FILTER_SANITIZE_STRING));
@@ -28,6 +30,23 @@ if (isset($_POST["biography"])) {
     }
 }
 
+// Upload an avatar image
+
+if (isset($_FILES["avatar"])) {
+    $files = $_FILES["avatar"];
+    $date = date("ymd");
+    $name = $files["name"];
+    $destination = __DIR__ . "/../../uploads/avatars/$date-$name";
+
+    if ($files["size"] > 4000000) {
+        $_SESSION["errors"][] = "The file size is too big!";
+    }
+
+    move_uploaded_file($files["tmp_name"], $destination);
+}
+
+// Change your email
+
 if (isset($_POST["email"], $_POST["emailnew"])) {
 
     $email = trim(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
@@ -51,8 +70,6 @@ if (isset($_POST["email"], $_POST["emailnew"])) {
     ]);
     $doesEmailExist = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-    // Change your email
-
     if ($email !== $storedEmail) {
         $_SESSION["errors"][] = "This is not your current email address";
     } elseif ($email === $emailNew) {
@@ -69,6 +86,8 @@ if (isset($_POST["email"], $_POST["emailnew"])) {
     }
     redirect("/account.php");
 }
+
+// Change your password
 
 if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) {
     $oldPassword = $_POST["oldpassword"];

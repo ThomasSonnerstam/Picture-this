@@ -24,15 +24,21 @@ if (!isset($_SESSION["user"])) {
     <?php endif; ?>
 
     <img class="profile-picture" src="/app/profile-pictures/pikachu.png" alt="">
+
+    <form class="pick-your-avatar" action="/app/users/account.php" enctype="multipart/form-data" method="post">
+        <label for="avatar">Pick your avatar</label>
+        <div class="avatar-wrapper">
+            <input type="file" accept="image/jpeg, image/png" name="avatar" id="avatar">
+            <button type="submit">Upload</button>
+        </div>
+    </form>
     <h3>
         <?php echo $_SESSION["user"]["name"]; ?>
     </h3>
 
     <form class="biography-wrapper" action="/app/users/account.php" method="post">
 
-        <textarea placeholder="Write your biography here" class="biography" name="biography" cols="30" rows="10">
-            <?php echo $biography["biography"]; ?>
-        </textarea>
+        <textarea placeholder="Write your biography here" class="biography" name="biography" cols="30" rows="10"><?php echo $biography["biography"]; ?></textarea>
 
         <button type=" submit">
             Update bio

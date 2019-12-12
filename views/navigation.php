@@ -10,7 +10,7 @@
         <?php if (isset($_SESSION["user"])) : ?>
 
             <li>
-                <a class="login" href="/account.php">Account</a>
+                <a class="login" href="/">Account</a>
             </li>
 
         <?php else : ?>
@@ -20,9 +20,17 @@
             </li>
 
             <li>
-                <a class="login" href="/login.php">Log in</a>
+                <a href="/login.php">Log in</a>
             </li>
         <?php endif; ?>
 
     </ul>
+
+    <?php if (isset($_SESSION["user"])) : ?>
+        <a class="settings-anchor" href="/account.php">
+            <img class="settings-icon" src="/assets/images/settings.png" alt="Image of a cog wheel">
+        </a>
+
+    <?php endif; ?>
+
 </nav>

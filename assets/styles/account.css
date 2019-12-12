@@ -72,5 +72,30 @@
 }
 
 .biography:focus::placeholder {
-    opacity: 0;
+    color: transparent;
+}
+
+/* PICK YOUR AVATAR */
+
+.pick-your-avatar {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-wrapper {
+    display: flex;
+    margin-top: 2vh;
+}
+
+.avatar-wrapper button {
+    margin: 0;
+    border: 1px solid black;
+    background-color: var(--orangey);
+}
+
+.avatar-wrapper input {
+    margin: 0;
+    text-align: center;
 }

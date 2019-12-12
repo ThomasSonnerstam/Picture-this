@@ -25,8 +25,18 @@ nav img {
 
 .menu li a {
     font-size: 1rem;
+    color: var(--orangey);
 }
 
-.login {
-    color: var(--orangey);
+.settings-anchor {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.settings-icon {
+    height: 50%;
+    width: auto;
+    margin: 0 5vw 0 0;
 }

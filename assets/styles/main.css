@@ -38,6 +38,7 @@ input {
     height: 6vh;
     padding-left: 2vw;
     margin-bottom: 2vh;
+    cursor: pointer;
 }
 
 input:focus {
@@ -55,4 +56,9 @@ button {
     margin-top: 2vh;
     background-color: #fff;
     border: 1px solid var(--orangey);
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
 }
