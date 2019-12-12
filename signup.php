@@ -8,6 +8,16 @@ require __DIR__ . '/views/header.php';
 
 <section class="signup-wrapper">
 
+    <?php if (isset($_SESSION["errors"])) : ?>
+        <p class="error">
+            <?php $errors = $_SESSION["errors"];
+                foreach ($errors as $error) : ?>
+                <?php echo $error; ?>
+            <?php endforeach; ?>
+            <?php unset($_SESSION["errors"]); ?>
+        </p>
+    <?php endif; ?>
+
     <h1 class="signup-h1">Create your account here!</h1>
 
     <p>
@@ -24,20 +34,6 @@ require __DIR__ . '/views/header.php';
 
         <label for="email">Email</label>
         <input type="text" name="email" id="email" required>
-
-        <?php if (isset($_SESSION["emailNotValid"])) : ?>
-            <p class="error">
-                <?php echo $_SESSION["emailNotValid"]; 
-                unset($_SESSION["emailNotValid"]); ?>
-            </p>
-        <?php endif; ?>
-        <?php if (isset($_SESSION["emailAlreadyExists"])) : ?>
-            <p class="error">
-                <?php echo $_SESSION["emailAlreadyExists"]; ?>
-                <?php unset($_SESSION["emailAlreadyExists"]); ?>
-            </p>
-
-        <?php endif; ?>
 
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>

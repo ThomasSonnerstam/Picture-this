@@ -23,7 +23,7 @@ if (isset($_POST["biography"])) {
 
         redirect("/account.php");
     } else {
-        $_SESSION["bioTooLong"] = "Your biography has a max limit of 240 characters.";
+        $_SESSION["errors"][] = "Your biography has a max limit of 240 characters.";
         redirect("/account.php");
     }
 }
@@ -54,18 +54,18 @@ if (isset($_POST["email"], $_POST["emailnew"])) {
     // Change your email
 
     if ($email !== $storedEmail) {
-        createMessage("emailClash", "This is not your current email address");
+        $_SESSION["errors"][] = "This is not your current email address";
     } elseif ($email === $emailNew) {
-        createMessage("emailIsSame", "You can't change to the same email address");
+        $_SESSION["errors"][] = "You can't change to the same email address";
     } elseif (!empty($doesEmailExist)) {
-        createMessage("emailAlreadyExists", "This email already exists, pick another one!");
+        $_SESSION["errors"][] = "This email already exists, pick another one!";
     } else {
         $statement = $pdo->prepare("UPDATE users SET email = :email WHERE id = :id");
         $statement->execute([
             ":email" => $emailNew,
             ":id" => $_SESSION["user"]["id"]
         ]);
-        createMessage("emailChanged", "Your email has successfully been changed!");
+        $_SESSION["errors"][] = "Your email has successfully been changed!";
     }
     redirect("/account.php");
 }

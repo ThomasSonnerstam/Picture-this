@@ -58,7 +58,7 @@ function getUsersById(object $pdo): array
  * @param string $errorContent
  * @return void
  */
-function createMessage(string $errorName, string $errorContent): void
-{
-    $_SESSION["$errorName"] = "$errorContent";
-}
+// function createMessage(string $errorName, string $errorContent): void
+// {
+//     $_SESSION["$errorName"] = "$errorContent";
+// }

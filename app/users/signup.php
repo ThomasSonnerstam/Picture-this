@@ -43,13 +43,13 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
             "name" => $createdUserData["first_name"],
             "email" => $createdUserData["email"]
         ];
-        // createSessionUser($createdUserData);
+
         redirect("/");
     } elseif (!empty($users)) {
-        $_SESSION["emailAlreadyExists"] = "This mail already exists in our database.";
+        $_SESSION["errors"][] = "This mail already exists in our database.";
         redirect("/signup.php");
     } else {
-        $_SESSION["emailNotValid"] = "This email is not valid";
+        $_SESSION["errors"][] = "This email is not valid";
         redirect("/signup.php");
     }
 }

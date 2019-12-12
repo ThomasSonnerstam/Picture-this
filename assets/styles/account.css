@@ -31,6 +31,21 @@
     margin: 0 auto;
 }
 
+@keyframes avatarRotate {
+    0% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(-2vh);
+    }
+    75% {
+        transform: translateY(2vh);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
 .profile-picture {
     width: 40vw;
     height: auto;
@@ -38,6 +53,10 @@
     border: 1px solid var(--orangey);
     border-radius: 100%;
 }
+
+/* .profile-picture:hover {
+    animation: avatarRotate 5s infinite;
+} */
 
 .biography-wrapper {
     display: flex;
