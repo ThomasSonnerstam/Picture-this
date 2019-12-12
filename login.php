@@ -17,7 +17,6 @@
         <label for="email">Email</label>
         <input type="email" name="email" placeholder="Enter email here" required>
 
-
         <label for="password">Password</label>
         <input type="password" name="password" required placeholder="Enter password here">
 

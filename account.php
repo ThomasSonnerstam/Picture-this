@@ -11,7 +11,6 @@ if (!isset($_SESSION["user"])) {
 
 <!-- PROFILE INFORMATION -->
 
-
 <section class="profile-info">
 
     <?php if (isset($_SESSION["errors"])) : ?>

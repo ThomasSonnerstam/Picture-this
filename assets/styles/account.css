@@ -54,10 +54,6 @@
     border-radius: 100%;
 }
 
-/* .profile-picture:hover {
-    animation: avatarRotate 5s infinite;
-} */
-
 .biography-wrapper {
     display: flex;
     flex-direction: column;
@@ -73,4 +69,8 @@
 
 .biography:focus {
     outline: none;
+}
+
+.biography:focus::placeholder {
+    opacity: 0;
 }

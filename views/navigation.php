@@ -7,10 +7,6 @@
             <a href="/index.php">Home</a>
         </li>
 
-        <li>
-            <a href="/about.php">About</a>
-        </li>
-
         <?php if (isset($_SESSION["user"])) : ?>
 
             <li>
