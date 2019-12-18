@@ -21,6 +21,7 @@ body {
     overflow-x: hidden;
     /* background-color: var(--blueish); */
     background-color: white;
+    height: 100vh;
 }
 
 h1 {

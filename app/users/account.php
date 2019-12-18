@@ -41,6 +41,7 @@ if (isset($_FILES["avatar"])) {
 
     if ($files["size"] > 4000000) {
         $_SESSION["errors"][] = "The file size is too big!";
+        redirect("/account.php");
     }
 
     move_uploaded_file($files["tmp_name"], $destination);

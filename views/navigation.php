@@ -10,7 +10,7 @@
         <?php if (isset($_SESSION["user"])) : ?>
 
             <li>
-                <a class="login" href="/">Account</a>
+                <a class="login" href="/profile.php">Profile</a>
             </li>
 
         <?php else : ?>
