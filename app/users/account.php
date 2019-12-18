@@ -37,12 +37,27 @@ if (isset($_FILES["avatar"])) {
     $date = date("ymd");
     $name = $files["name"];
     $destination = __DIR__ . "/../../uploads/avatars/$date-$name";
+    $fullAvatarName = "$date-$name";
 
     if ($files["size"] > 4000000) {
         $_SESSION["errors"][] = "The file size is too big!";
     }
 
     move_uploaded_file($files["tmp_name"], $destination);
+
+    $user = getUsersById($pdo);
+
+    $userId = $user["id"];
+
+    $statement = $pdo->prepare("UPDATE users SET profile_picture = :avatar WHERE id = :id");
+    $statement->execute([
+        ":avatar" => $fullAvatarName,
+        ":id" => $userId
+    ]);
+
+    $_SESSION["errors"][] = "You have successfully uploaded your profile picture";
+
+    redirect("/account.php");
 }
 
 // Change your email
