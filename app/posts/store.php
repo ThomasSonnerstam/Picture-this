@@ -22,14 +22,18 @@ if (isset($_FILES["newpost"], $_POST["caption"])) {
 
     $user = getUsersById($pdo);
 
-    $statement = $pdo->prepare("INSERT INTO posts (user_id, image, content) VALUES (:id, :image, :content)");
-    $statement->execute([
-        ":id" => $user["id"],
-        ":image" => $postImageName,
-        ":content" => $caption
-    ]);
+    if (strlen($caption) <= 200) {
+        $statement = $pdo->prepare("INSERT INTO posts (user_id, image, content) VALUES (:id, :image, :content)");
+        $statement->execute([
+            ":id" => $user["id"],
+            ":image" => $postImageName,
+            ":content" => $caption
+        ]);
 
-    move_uploaded_file($files["tmp_name"], $destination);
+        move_uploaded_file($files["tmp_name"], $destination);
+    } else {
+        $_SESSION["errors"][] = "Your caption can only be 200 characters or less.";
+    }
 }
 
 redirect('/');

@@ -1,5 +1,24 @@
-/* .new-post {
+.your-posts {
     display: flex;
     flex-direction: column;
     margin: 3vh 0 0 5vw;
-} */
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5vh;
+}
+
+.post img {
+    width: 90vw;
+    height: auto;
+    max-height: 80vh;
+    margin-bottom: 2vh;
+}
+
+.post .post-line {
+    height: 1px;
+    background-color: var(--orangey);
+    margin-top: 2vh;
+}

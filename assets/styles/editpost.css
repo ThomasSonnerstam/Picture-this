@@ -1,0 +1,8 @@
+.post form {
+    display: flex;
+    flex-direction: column;
+}
+
+.post h2 {
+    margin-bottom: 3vh;
+}

@@ -28,6 +28,10 @@ if (!isset($_SESSION["user"])) {
     <form class="pick-your-avatar" action="/app/users/account.php" enctype="multipart/form-data" method="post">
         <label for="avatar">Pick your avatar</label>
         <div class="avatar-wrapper">
+            <label for="avatar">
+                Choose image:
+                <img src="/assets/images/index-logo.png" alt="Image of a camera">
+            </label>
             <input type="file" accept="image/jpeg, image/png" name="avatar" id="avatar">
             <button type="submit">Upload</button>
         </div>
@@ -40,9 +44,7 @@ if (!isset($_SESSION["user"])) {
 
         <textarea placeholder="Write your biography here" class="biography" name="biography" cols="30" rows="10"><?php echo $biography["biography"]; ?></textarea>
 
-        <button type=" submit">
-            Update bio
-        </button>
+        <button type="submit">Update bio</button>
 
     </form>
 

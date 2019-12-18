@@ -22,9 +22,11 @@
 
                 <h2>New post</h2>
 
-                <label for="newpost">Choose image</label>
+                <label for="newpost">
+                    Choose image:
+                    <img class="upload-image" src="/assets/images/index-logo.png" alt="Image of a camera">
+                </label>
                 <input type="file" accept="image/jpeg, image/png" name="newpost" id="newpost" required>
-
 
                 <p>Caption:</p>
                 <textarea class="write-new-post" name="caption" id="caption" cols="30" rows="10"></textarea>

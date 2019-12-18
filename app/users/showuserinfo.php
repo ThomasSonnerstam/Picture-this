@@ -19,3 +19,12 @@ $biographyQuery->execute([
 ]);
 
 $biography = $biographyQuery->fetch(PDO::FETCH_ASSOC);
+
+
+// Your posts
+
+$statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :id");
+$statement->execute([
+    ":id" => $user["id"]
+]);
+$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
