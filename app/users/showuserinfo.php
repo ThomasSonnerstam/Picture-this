@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+
+// Queries to be able to extract info from database, this file is required in 
+// files where you need information from the database.
+
 $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
 $statement->execute([
     ":id" => $_SESSION["user"]["id"]

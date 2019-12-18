@@ -60,6 +60,9 @@ if (isset($_FILES["avatar"])) {
     redirect("/account.php");
 }
 
+$user = getUsersById($pdo);
+die(var_dump($user));
+
 // Change your email
 
 if (isset($_POST["email"], $_POST["emailnew"])) {

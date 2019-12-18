@@ -1,7 +1,7 @@
 <?php
 
 require __DIR__ . '/views/header.php';
-require __DIR__ . '/app/users/showbiography.php';
+require __DIR__ . '/app/users/showuserinfo.php';
 
 if (!isset($_SESSION["user"])) {
     redirect("/");
@@ -23,7 +23,7 @@ if (!isset($_SESSION["user"])) {
         </p>
     <?php endif; ?>
 
-    <img class="profile-picture" src="/app/profile-pictures/pikachu.png" alt="">
+    <img class="profile-picture" src="/uploads/avatars/<?php echo $user["profile_picture"]; ?>" alt="">
 
     <form class="pick-your-avatar" action="/app/users/account.php" enctype="multipart/form-data" method="post">
         <label for="avatar">Pick your avatar</label>
