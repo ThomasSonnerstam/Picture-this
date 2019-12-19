@@ -15,6 +15,10 @@ if (isset($_POST["editpost"])) {
         ":content" => $edited,
         ":id" => $_GET["id"]
     ]);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
 }
 
-redirect('/');
+// redirect('/');

@@ -9,8 +9,9 @@ $statement->execute([
     ":id" => $_SESSION["user"]["id"],
     ":postid" => $_GET["id"]
 ]);
-$editpost = $statement->fetchAll(PDO::FETCH_ASSOC);
+$editpost = $statement->fetch(PDO::FETCH_ASSOC);
 
+// die(var_dump($_GET));
 
 ?>
 <section class="your-posts">
@@ -19,11 +20,11 @@ $editpost = $statement->fetchAll(PDO::FETCH_ASSOC);
 
         <h2>Edit post</h2>
 
-        <img src="/uploads/posts/<?php echo $editpost[0]["image"]; ?>" alt="">
+        <img src="/uploads/posts/<?php echo $editpost["image"]; ?>" alt="">
 
         <form action="/app/posts/update.php" method="post">
 
-            <textarea name="editpost" id="editpost" cols="30" rows="10"><?php echo $editpost[0]["content"]; ?></textarea>
+            <textarea name="editpost" id="editpost" cols="30" rows="10"><?php echo $editpost["content"]; ?></textarea>
 
             <button type="submit">Update post</button>
 
@@ -31,9 +32,5 @@ $editpost = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     </div>
 </section>
-
-
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

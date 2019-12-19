@@ -62,7 +62,6 @@ if (isset($_FILES["avatar"])) {
 }
 
 $user = getUsersById($pdo);
-die(var_dump($user));
 
 // Change your email
 

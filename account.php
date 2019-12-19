@@ -16,7 +16,7 @@ if (!isset($_SESSION["user"])) {
     <?php if (isset($_SESSION["errors"])) : ?>
         <p class="error">
             <?php $errors = $_SESSION["errors"];
-                foreach ($errors as $error) : ?>
+            foreach ($errors as $error) : ?>
                 <?php echo $error; ?>
             <?php endforeach; ?>
             <?php unset($_SESSION["errors"]); ?>
