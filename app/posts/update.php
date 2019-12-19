@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we edit and delete posts in the database.
+// In this file we edit posts in the database.
 
 if (isset($_POST["editpost"])) {
 
@@ -22,4 +22,4 @@ if (isset($_POST["editpost"])) {
     ]);
 }
 
-redirect('/');
+redirect('/profile.php');

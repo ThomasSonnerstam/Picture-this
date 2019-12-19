@@ -18,10 +18,18 @@ if (!isset($_SESSION["user"])) {
         <div class="post" data-id="<?php echo $post["id"]; ?>">
 
             <img src="/uploads/posts/<?php echo $post["image"]; ?>">
+
             <p><?php echo $post["content"]; ?></p>
-            <button>
-                <a href="/editpost.php?id=<?php echo $post["id"]; ?>">Edit</a>
-            </button>
+
+            <div class="button-wrapper">
+                <button>
+                    <a href="/editpost.php?id=<?php echo $post["id"]; ?>">Edit</a>
+                </button>
+                <button class="delete">
+                    <a href="/deletepost.php?id=<?php echo $post["id"]; ?>">Delete post</a>
+                </button>
+            </div>
+
             <div class="post-line"></div>
 
         </div>

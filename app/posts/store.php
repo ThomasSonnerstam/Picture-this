@@ -6,8 +6,13 @@ require __DIR__ . '/../autoload.php';
 
 // In this file we store/insert new posts in the database.
 
-if (isset($_FILES["newpost"], $_POST["caption"])) {
+if (!isset($_FILES["newpost"], $_POST["caption"])) {
+    $_SESSION["errors"][] = "You must upload an image and write a caption";
+    unset($_SESSION["errors"]);
+    // redirect("/");
+}
 
+if (isset($_FILES["newpost"], $_POST["caption"])) {
     $files = $_FILES["newpost"];
     $caption = trim(filter_var($_POST["caption"], FILTER_SANITIZE_STRING));
     $date = date("ymd");
@@ -22,7 +27,7 @@ if (isset($_FILES["newpost"], $_POST["caption"])) {
 
     $user = getUsersById($pdo);
 
-    if (strlen($caption) <= 200) {
+    if (strlen($caption) <= 200 && isset($_FILES["newpost"])) {
         $statement = $pdo->prepare("INSERT INTO posts (user_id, image, content) VALUES (:id, :image, :content)");
         $statement->execute([
             ":id" => $user["id"],

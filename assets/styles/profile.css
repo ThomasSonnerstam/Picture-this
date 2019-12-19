@@ -22,3 +22,17 @@
     background-color: var(--orangey);
     margin-top: 2vh;
 }
+
+.button-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.delete {
+    margin-right: 5vw;
+    background-color: rgb(204, 38, 38);
+}
+
+.delete a {
+    color: var(--orangey);
+}

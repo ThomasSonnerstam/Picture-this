@@ -10,7 +10,7 @@
         <?php if (isset($_SESSION["errors"])) : ?>
             <p class="error">
                 <?php $errors = $_SESSION["errors"];
-                        foreach ($errors as $error) : ?>
+                foreach ($errors as $error) : ?>
                     <?php echo $error; ?>
                 <?php endforeach; ?>
                 <?php unset($_SESSION["errors"]); ?>
@@ -19,19 +19,16 @@
 
         <section class="new-post">
             <form action="/app/posts/store.php" method="post" enctype="multipart/form-data">
-
                 <h2>New post</h2>
-
                 <label for="newpost">
                     Choose image:
                     <img class="upload-image" src="/assets/images/index-logo.png" alt="Image of a camera">
                 </label>
-                <input type="file" accept="image/jpeg, image/png" name="newpost" id="newpost" required>
-
+                <input type="file" accept="image/jpeg, image/png" name="newpost" id="newpost">
                 <p>Caption:</p>
                 <textarea class="write-new-post" name="caption" id="caption" cols="30" rows="10"></textarea>
-
                 <button type="submit">Post</button>
+
             </form>
         </section>
 
