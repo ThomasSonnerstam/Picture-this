@@ -22,7 +22,7 @@ $editpost = $statement->fetch(PDO::FETCH_ASSOC);
 
         <img src="/uploads/posts/<?php echo $editpost["image"]; ?>" alt="">
 
-        <form action="/app/posts/update.php" method="post">
+        <form action="/app/posts/update.php?id=<?php echo $_GET["id"]; ?>" method="post">
 
             <textarea name="editpost" id="editpost" cols="30" rows="10"><?php echo $editpost["content"]; ?></textarea>
 
