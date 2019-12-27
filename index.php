@@ -1,5 +1,7 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
+
+
 <article class="homepage">
     <?php if (isset($_SESSION["user"])) : ?>
 
@@ -31,6 +33,34 @@
 
             </form>
         </section>
+
+        <!-- Posts -->
+
+        <?php foreach ($posts as $post) : ?>
+
+            <div class="post" data-id="<?php echo $post["id"]; ?>">
+
+                <img src="/uploads/posts/<?php echo $post["image"]; ?>">
+
+                <p><?php echo $post["content"]; ?></p>
+
+                <div class="button-wrapper">
+                    <button>
+                        <a href="/editpost.php?id=<?php echo $post["id"]; ?>">Edit</a>
+                    </button>
+                    <button class="delete">
+                        <a href="/deletepost.php?id=<?php echo $post["id"]; ?>">Delete post</a>
+                    </button>
+                </div>
+
+                <div class="post-line"></div>
+
+            </div>
+
+
+        <?php endforeach; ?>
+
+
 
 
 

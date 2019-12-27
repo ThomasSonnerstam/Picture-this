@@ -19,6 +19,12 @@ if (!isset($_SESSION["user"])) {
 
             <img src="/uploads/posts/<?php echo $post["image"]; ?>">
 
+            <form class="reactions" action="/app/posts/reactions.php" method="post">
+
+                <input type="submit" value="like" name="like">
+
+            </form>
+
             <p><?php echo $post["content"]; ?></p>
 
             <div class="button-wrapper">
