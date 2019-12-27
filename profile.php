@@ -21,7 +21,7 @@ if (!isset($_SESSION["user"])) {
 
             <form class="reactions" action="/app/posts/reactions.php" method="post">
 
-                <input type="submit" value="like" name="like">
+                <input type="submit" value="like" name="like" id=<?php echo $post["id"]; ?>>
 
             </form>
 
@@ -40,19 +40,8 @@ if (!isset($_SESSION["user"])) {
 
         </div>
 
-
     <?php endforeach; ?>
 
-
-
-
-
-
-
 </section>
-
-
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

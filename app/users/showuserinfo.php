@@ -6,25 +6,28 @@ declare(strict_types=1);
 // Queries to be able to extract info from database, this file is required in 
 // files where you need information from the database.
 
-$statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
-$statement->execute([
-    ":id" => $_SESSION["user"]["id"]
-]);
-$user = $statement->fetch(PDO::FETCH_ASSOC);
+if (isset($_SESSION["user"]["id"])) {
 
-$biographyQuery = $pdo->prepare("SELECT biography FROM users WHERE id = :id");
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+    $statement->execute([
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
 
-$biographyQuery->execute([
-    ":id" => $_SESSION["user"]["id"]
-]);
+    $biographyQuery = $pdo->prepare("SELECT biography FROM users WHERE id = :id");
 
-$biography = $biographyQuery->fetch(PDO::FETCH_ASSOC);
+    $biographyQuery->execute([
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+
+    $biography = $biographyQuery->fetch(PDO::FETCH_ASSOC);
 
 
-// Your posts
+    // Your posts
 
-$statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :id ORDER BY id DESC");
-$statement->execute([
-    ":id" => $user["id"]
-]);
-$posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :id ORDER BY id DESC");
+    $statement->execute([
+        ":id" => $user["id"]
+    ]);
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+}
