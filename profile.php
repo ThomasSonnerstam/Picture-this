@@ -21,7 +21,8 @@ if (!isset($_SESSION["user"])) {
 
             <form class="reactions" action="/app/posts/reactions.php" method="post">
 
-                <input type="submit" value="like" name="like" id=<?php echo $post["id"]; ?>>
+                <input type="hidden" name="postId" value="<?php echo $post["id"]; ?>">
+                <input type="submit" value="Like" name="like">
 
             </form>
 
