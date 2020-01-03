@@ -1,6 +1,17 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<?php require __DIR__ . '/app/users/showuserinfo.php'; ?>
+<?php require __DIR__ . '/app/users/showuserinfo.php';
+
+// $statement = $pdo->prepare("SELECT * FROM reactions WHERE user_id = :user_id AND post_id = :post_id");
+
+// $statement->execute([
+//     ":user_id" => $_SESSION["user"]["id"],
+//     ":post_id" => $_POST["postId"]
+// ]);
+
+// $isLike = $statement->fetch(PDO::FETCH_ASSOC);
+
+?>
 
 <article class="homepage">
     <?php if (isset($_SESSION["user"])) : ?>
@@ -42,16 +53,16 @@
 
                 <img src="/uploads/posts/<?php echo $post["image"]; ?>">
 
-                <p><?php echo $post["content"]; ?></p>
+                <form class="reactions" action="/app/posts/reactions.php" method="post">
 
-                <div class="button-wrapper">
-                    <button>
-                        <a href="/editpost.php?id=<?php echo $post["id"]; ?>">Edit</a>
+                    <input type="hidden" name="postId" value="<?php echo $post["id"]; ?>">
+                    <button class="hidden-button" type="submit" value="Like" name="like">
+                        <img class="like-image" src="/assets/images/emptylike.png" alt="Image of a heart">
                     </button>
-                    <button class="delete">
-                        <a href="/deletepost.php?id=<?php echo $post["id"]; ?>">Delete post</a>
-                    </button>
-                </div>
+
+                </form>
+
+                <p><?php echo $post["content"]; ?></p>
 
                 <div class="post-line"></div>
 

@@ -7,6 +7,15 @@ if (!isset($_SESSION["user"])) {
     redirect("/");
 }
 
+// $statement = $pdo->prepare("SELECT * FROM reactions WHERE user_id = :user_id AND post_id = :post_id");
+
+// $statement->execute([
+//     ":user_id" => $_SESSION["user"]["id"],
+//     ":post_id" => $_POST["postId"]
+// ]);
+
+// $isLike = $statement->fetch(PDO::FETCH_ASSOC);
+
 ?>
 
 <section class="your-posts">
