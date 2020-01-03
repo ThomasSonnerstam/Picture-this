@@ -36,3 +36,15 @@
 .delete a {
     color: var(--orangey);
 }
+
+.hidden-button {
+    border: none;
+    width: 32px;
+    height: 32px;
+    margin: 0 0 2vh 0;
+}
+
+.hidden-button .like-image {
+    width: 32px;
+    height: 32px;
+}

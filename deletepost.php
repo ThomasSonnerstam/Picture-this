@@ -11,6 +11,7 @@ $statement->execute([
     ":id" => $_SESSION["user"]["id"],
     ":postid" => $_GET["id"]
 ]);
+
 $postinfo = $statement->fetch(PDO::FETCH_ASSOC);
 
 
