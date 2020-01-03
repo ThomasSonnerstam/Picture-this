@@ -11,7 +11,7 @@ if (!isset($_SESSION["user"])) {
 
 // $statement->execute([
 //     ":user_id" => $_SESSION["user"]["id"],
-//     ":post_id" => $_POST["postId"]
+//     ":post_id" => $post["id"]
 // ]);
 
 // $isLike = $statement->fetch(PDO::FETCH_ASSOC);
@@ -24,6 +24,16 @@ if (!isset($_SESSION["user"])) {
 
     <?php foreach ($posts as $post) : ?>
 
+        <?php $statement = $pdo->prepare("SELECT * FROM reactions WHERE user_id = :user_id AND post_id = :post_id");
+
+        $statement->execute([
+            ":user_id" => $_SESSION["user"]["id"],
+            ":post_id" => $post["id"]
+        ]);
+
+        $isLike = $statement->fetch(PDO::FETCH_ASSOC);
+        ?>
+
         <div class="post" data-id="<?php echo $post["id"]; ?>">
 
             <img src="/uploads/posts/<?php echo $post["image"]; ?>">
@@ -32,7 +42,8 @@ if (!isset($_SESSION["user"])) {
 
                 <input type="hidden" name="postId" value="<?php echo $post["id"]; ?>">
                 <button class="hidden-button" type="submit" value="Like" name="like">
-                    <img class="like-image" src="/assets/images/emptylike.png" alt="Image of a heart">
+                    <img class="like-image" src="/assets/images/<?php if (!empty($isLike)) echo "like.png";
+                                                                else echo "emptylike.png"; ?>" alt="Image of a heart">
                 </button>
 
             </form>
