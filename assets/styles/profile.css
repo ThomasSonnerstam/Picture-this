@@ -48,3 +48,13 @@
     width: 32px;
     height: 32px;
 }
+
+.reaction-wrapper {
+    display: flex;
+}
+
+.reaction-wrapper .comment-image {
+    width: 32px;
+    height: 32px;
+    margin-left: 2vw;
+}
