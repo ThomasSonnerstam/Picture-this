@@ -6,6 +6,17 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST)) {
 
+    // Deletes the user avatar upon account deletion
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+    $statement->execute([
+        ":id" => $_SESSION["user"]["id"]
+    ]);
+
+    $userInfo = $statement->fetch(PDO::FETCH_ASSOC);
+    $userInfoAvatar = $userInfo["profile_picture"];
+    $fullPath = __DIR__ . "/../../uploads/avatars/$userInfoAvatar";
+    unlink($fullPath);
+
     // Deletes user
     $statement = $pdo->prepare('DELETE FROM users WHERE id = :id');
     $statement->execute([
