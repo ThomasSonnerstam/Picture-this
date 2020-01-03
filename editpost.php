@@ -11,7 +11,6 @@ $statement->execute([
 ]);
 $editpost = $statement->fetch(PDO::FETCH_ASSOC);
 
-// die(var_dump($_GET));
 
 ?>
 <section class="your-posts">
