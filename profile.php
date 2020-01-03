@@ -42,8 +42,7 @@ if (!isset($_SESSION["user"])) {
 
                 <input type="hidden" name="postId" value="<?php echo $post["id"]; ?>">
                 <button class="hidden-button" type="submit" value="Like" name="like">
-                    <img class="like-image" src="/assets/images/<?php if (!empty($isLike)) echo "like.png";
-                                                                else echo "emptylike.png"; ?>" alt="Image of a heart">
+                    <img class="like-image" src="/assets/images/<?php echo !empty($isLike) ? "like.png" : "emptylike.png"; ?>" alt="Image of a heart">
                 </button>
 
             </form>
