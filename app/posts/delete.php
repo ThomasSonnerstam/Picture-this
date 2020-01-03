@@ -9,28 +9,31 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_POST["deletepost"])) {
 
-    // Deletes the post
-    $statement = $pdo->prepare("DELETE FROM posts WHERE id = :id");
+    // Removes the image from the deleted post
+    $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id AND user_id = :user_id");
     $statement->execute([
-        ":id" => $_GET["id"]
+        ":id" => $_GET["id"],
+        ":user_id" => $_SESSION["user"]["id"]
+
+    ]);
+    $postInfo = $statement->fetch(PDO::FETCH_ASSOC);
+    $postInfoImage = $postInfo["image"];
+    $fullPath = __DIR__ . "/../../uploads/posts/$postInfoImage";
+    unlink($fullPath);
+
+    // Deletes the post
+    $statement = $pdo->prepare("DELETE FROM posts WHERE id = :id AND user_id = :user_id");
+    $statement->execute([
+        ":id" => $_GET["id"],
+        ":user_id" => $_SESSION["user"]["id"]
     ]);
 
     // Deletes the like from the deleted post
-    $statement = $pdo->prepare("DELETE FROM reactions WHERE post_id = :post_id");
+    $statement = $pdo->prepare("DELETE FROM reactions WHERE post_id = :post_id AND user_id = :user_id");
     $statement->execute([
-        ":post_id" => $_GET["id"]
+        ":post_id" => $_GET["id"],
+        ":user_id" => $_SESSION["user"]["id"]
     ]);
-
-    // Removes the image from the deleted post
-    $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
-    $statement->execute([
-        ":id" => $_GET["id"]
-    ]);
-    $postInfo = $statement->fetch(PDO::FETCH_ASSOC);
-    // die(var_dump($postInfo));
-    $postInfoImage = $postInfo["image"];
-    $fullPath = "/uploads/posts/$postInfoImage";
-    unlink($fullPath);
 }
 
 redirect('/');

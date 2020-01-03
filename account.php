@@ -92,7 +92,7 @@ if (!isset($_SESSION["user"])) {
     <form action="/app/users/delete.php" method="post">
 
         <h2>Delete account</h2>
-        <button class="logout" type="submit">Yes</button>
+        <button class="logout delete-account" type="submit">Yes</button>
 
     </form>
 
