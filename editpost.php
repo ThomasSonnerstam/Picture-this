@@ -11,8 +11,8 @@ $statement->execute([
 ]);
 $editpost = $statement->fetch(PDO::FETCH_ASSOC);
 
-
 ?>
+
 <section class="your-posts">
 
     <div class="post">

@@ -34,4 +34,6 @@ This is the database layout
 
 # TESTERS
 
+-   [Andreas Lindberg](https://github.com/oaflindberg)
+
 # CODE REVIEW

@@ -6,7 +6,6 @@ require __DIR__ . '/../autoload.php';
 
 // In this file we delete new posts in the database.
 
-
 if (isset($_POST["deletepost"])) {
 
     // Removes the image from the deleted post

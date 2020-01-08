@@ -2,7 +2,6 @@
 
 declare(strict_types=1);
 
-
 // Queries to be able to extract info from database, this file is required in 
 // files where you need information from the database.
 
@@ -21,7 +20,6 @@ if (isset($_SESSION["user"]["id"])) {
     ]);
 
     $biography = $biographyQuery->fetch(PDO::FETCH_ASSOC);
-
 
     // Your posts
 

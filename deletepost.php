@@ -14,7 +14,6 @@ $statement->execute([
 
 $postinfo = $statement->fetch(PDO::FETCH_ASSOC);
 
-
 ?>
 
 <section class="your-posts">
@@ -35,6 +34,5 @@ $postinfo = $statement->fetch(PDO::FETCH_ASSOC);
 
     </div>
 </section>
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>
