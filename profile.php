@@ -27,7 +27,7 @@ if (!isset($_SESSION["user"])) {
 
         <div class="post" data-id="<?php echo $post["id"]; ?>">
 
-            <img src="/uploads/posts/<?php echo $post["image"]; ?>">
+            <img class="post-image" src="/uploads/posts/<?php echo $post["image"]; ?>">
 
             <div class="reaction-wrapper">
 

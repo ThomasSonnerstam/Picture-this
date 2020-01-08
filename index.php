@@ -2,15 +2,6 @@
 
 <?php require __DIR__ . '/app/users/showuserinfo.php';
 
-// $statement = $pdo->prepare("SELECT * FROM reactions WHERE user_id = :user_id AND post_id = :post_id");
-
-// $statement->execute([
-//     ":user_id" => $_SESSION["user"]["id"],
-//     ":post_id" => $_POST["postId"]
-// ]);
-
-// $isLike = $statement->fetch(PDO::FETCH_ASSOC);
-
 ?>
 
 <article class="homepage">
@@ -61,7 +52,7 @@
 
             <div class="post" data-id="<?php echo $post["id"]; ?>">
 
-                <img src="/uploads/posts/<?php echo $post["image"]; ?>">
+                <img class="post-image" src="/uploads/posts/<?php echo $post["image"]; ?>">
 
                 <form class="reactions" action="/app/posts/reactions.php" method="post">
 
@@ -78,13 +69,7 @@
 
             </div>
 
-
         <?php endforeach; ?>
-
-
-
-
-
 
         <!-- If you're not logged in, this will show on the homepage instead -->
     <?php else : ?>

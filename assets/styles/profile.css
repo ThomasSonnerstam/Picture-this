@@ -58,3 +58,18 @@
     height: 32px;
     margin-left: 2vw;
 }
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .button-wrapper {
+        width: 50vw;
+    }
+
+    .button-wrapper button {
+        width: 20vw;
+    }
+
+    button.delete {
+        margin-right: 0;
+    }
+}

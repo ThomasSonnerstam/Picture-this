@@ -82,12 +82,13 @@ if (!isset($_SESSION["user"])) {
         <div class="account-buttons">
             <button type="submit">Reset password</button>
 
-            <button class="logout">
-                <a href="/app/users/logout.php">Log out</a>
-            </button>
         </div>
 
     </form>
+
+    <a href="/app/users/logout.php">
+        <button type="submit" class="orange">Log out</button>
+    </a>
 
     <form action="/app/users/delete.php" method="post">
 

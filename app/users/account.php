@@ -124,7 +124,5 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
         ]);
 
         redirect("/app/users/logout.php");
-    } else {
-        die(var_dump($pdo->errorInfo()));
     }
 }

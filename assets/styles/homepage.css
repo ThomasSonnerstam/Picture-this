@@ -65,3 +65,22 @@
 .write-new-post:focus {
     outline: none;
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .write-new-post {
+        width: 60vw;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .write-new-post {
+        width: 50vw;
+    }
+
+    .post .post-image {
+        width: 50vw;
+        height: auto;
+    }
+}

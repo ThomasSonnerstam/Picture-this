@@ -11,7 +11,7 @@ require __DIR__ . '/views/header.php';
     <?php if (isset($_SESSION["errors"])) : ?>
         <p class="error">
             <?php $errors = $_SESSION["errors"];
-                foreach ($errors as $error) : ?>
+            foreach ($errors as $error) : ?>
                 <?php echo $error; ?>
             <?php endforeach; ?>
             <?php unset($_SESSION["errors"]); ?>
@@ -20,7 +20,7 @@ require __DIR__ . '/views/header.php';
 
     <h1 class="signup-h1">Create your account here!</h1>
 
-    <p>
+    <p class="signup-p">
         Fill in the form to create your first Picture This account! Join millions of people and interact with eachother!
     </p>
 

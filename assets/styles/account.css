@@ -75,6 +75,11 @@
     color: transparent;
 }
 
+a .orange {
+    background-color: var(--orangey);
+    border: 1px solid black;
+}
+
 /* PICK YOUR AVATAR */
 
 .pick-your-avatar {
@@ -113,4 +118,32 @@
     margin: 0;
     border: 1px solid black;
     background-color: var(--orangey);
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .profile-picture {
+        width: 30vw;
+        height: auto;
+    }
+
+    .biography {
+        width: 50vw;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .profile-picture {
+        width: 20vw;
+        height: auto;
+    }
+
+    .biography {
+        width: 30vw;
+    }
+
+    .pick-your-avatar button {
+        width: 20vw;
+    }
 }

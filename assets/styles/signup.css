@@ -1,35 +1,47 @@
 .signup-wrapper {
-  display: flex;
-  width: 90vw;
-  min-height: 92vh;
-  max-height: 92vh;
-  flex-direction: column;
-  margin: 0 auto;
+    display: flex;
+    width: 90vw;
+    min-height: 92vh;
+    max-height: 92vh;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .signup-wrapper form {
-  display: flex;
-  flex-direction: column;
-  margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
 }
 
 .signup-wrapper h1 {
-  color: black;
+    color: black;
 }
 
 .signup-wrapper h2 {
-  margin-top: 5vh;
-  text-align: center;
+    margin-top: 5vh;
+    text-align: center;
 }
 
 .signup-wrapper input {
-  margin-top: 1vh;
+    margin-top: 1vh;
 }
 
 .signup-wrapper button {
-  width: 25vw;
-  height: 6vh;
-  margin-top: 2vh;
-  background-color: #fff;
-  border: 1px solid var(--orangey);
+    width: 25vw;
+    height: 6vh;
+    margin-top: 2vh;
+    background-color: #fff;
+    border: 1px solid var(--orangey);
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    input {
+        width: 30vw;
+    }
+
+    .signup-wrapper {
+        width: 40vw;
+        margin: 0 0 0 5vw;
+    }
 }
