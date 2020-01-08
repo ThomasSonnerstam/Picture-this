@@ -125,4 +125,19 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
 
         redirect("/app/users/logout.php");
     }
+
+    if (!password_verify($oldPassword, $oldPasswordInfo)) {
+        $_SESSION["errors"][] = "Wrong current password";
+        redirect("/account.php");
+    }
+
+    if ($newPassword !== $newPasswordRepeat) {
+        $_SESSION["errors"][] = "The new passwords must match.";
+        redirect("/account.php");
+    }
+
+    if ($newPassword === $oldPassword) {
+        $_SESSION["errors"][] = "Your old and new password cannot be the same.";
+        redirect("/account.php");
+    }
 }

@@ -22,7 +22,7 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
 
     $users = $getEmailQuery->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($users === []) {
+    if ($users === [] && $validatedEmail) {
         $statement = $pdo->prepare("INSERT INTO users (first_name, last_name, email, password) VALUES (:firstname, :lastname, :email, :password)");
         $statement->execute([
             ":firstname" => $firstName,
