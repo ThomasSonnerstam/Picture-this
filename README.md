@@ -35,5 +35,6 @@ This is the database layout
 # TESTERS
 
 -   [Andreas Lindberg](https://github.com/oaflindberg)
+-   [Betsy Alva Soplin](https://github.com/milliebase)
 
 # CODE REVIEW
