@@ -63,4 +63,6 @@ if (!isset($_SESSION["user"])) {
 
 </section>
 
+<script src="/assets/scripts/like.js"></script>
+
 <?php require __DIR__ . '/views/footer.php'; ?>

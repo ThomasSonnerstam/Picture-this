@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST["like"])) {
+header('Content-Type: application/json');
+
+if (isset($_POST["postId"])) {
 
     $statement = $pdo->prepare("SELECT * FROM reactions WHERE user_id = :user_id AND post_id = :post_id");
 
@@ -23,16 +25,25 @@ if (isset($_POST["like"])) {
             ":user_id" => $_SESSION["user"]["id"],
             ":postId" => $_POST["postId"]
         ]);
+
+        $liked = ['src' => 'like.png'];
+
+        echo json_encode($liked);
+        exit;
     }
 
     if (!empty($isLike)) {
 
         $statement = $pdo->prepare("DELETE FROM reactions WHERE user_id = :user_id AND post_id = :postId");
+
         $statement->execute([
             ":user_id" => $_SESSION["user"]["id"],
             ":postId" => $_POST["postId"]
         ]);
-    }
 
-    redirect("/");
+        $notLiked = ['src' => 'emptylike.png'];
+
+        echo json_encode($notLiked);
+        exit;
+    }
 }

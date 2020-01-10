@@ -81,4 +81,6 @@
     <?php endif; ?>
 </article>
 
+<script src="/assets/scripts/like.js"></script>
+
 <?php require __DIR__ . '/views/footer.php'; ?>
