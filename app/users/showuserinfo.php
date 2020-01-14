@@ -22,7 +22,6 @@ if (isset($_SESSION["user"]["id"])) {
     $biography = $biographyQuery->fetch(PDO::FETCH_ASSOC);
 
     // Your posts
-
     $statement = $pdo->prepare("SELECT * FROM posts WHERE user_id = :id ORDER BY id DESC");
     $statement->execute([
         ":id" => $user["id"]

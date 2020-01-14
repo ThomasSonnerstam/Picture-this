@@ -2,8 +2,6 @@
 
 const likes = document.querySelectorAll(".reactions");
 
-console.log(likes);
-
 likes.forEach(like => {
     like.addEventListener("submit", e => {
         e.preventDefault();

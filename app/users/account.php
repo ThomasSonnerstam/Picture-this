@@ -9,11 +9,8 @@ require __DIR__ . '/../autoload.php';
 if (isset($_POST["biography"])) {
 
     $biographyText = trim(filter_var($_POST["biography"], FILTER_SANITIZE_STRING));
-
     $user = getUsersById($pdo);
-
     $storedBio = $user['biography'];
-
     $statement = $pdo->prepare("UPDATE users SET biography = :biography WHERE id = :id");
 
     if (strlen($biographyText) <= 240) {
@@ -45,9 +42,7 @@ if (isset($_FILES["avatar"])) {
     }
 
     move_uploaded_file($files["tmp_name"], $destination);
-
     $user = getUsersById($pdo);
-
     $userId = $user["id"];
 
     $statement = $pdo->prepare("UPDATE users SET profile_picture = :avatar WHERE id = :id");
@@ -77,11 +72,9 @@ if (isset($_POST["email"], $_POST["emailnew"])) {
     ]);
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-
     $storedEmail = $user["email"];
 
     // Gets email from users table
-
     $statement = $pdo->prepare("SELECT email FROM users WHERE email = :email");
     $statement->execute([
         ":email" => $emailNew
@@ -111,9 +104,7 @@ if (isset($_POST["oldpassword"], $_POST["password"], $_POST["passwordrepeat"])) 
     $oldPassword = $_POST["oldpassword"];
     $newPassword = $_POST["password"];
     $newPasswordRepeat = $_POST["passwordrepeat"];
-
     $user = getUsersById($pdo);
-
     $oldPasswordInfo = $user["password"];
 
     if (password_verify($oldPassword, $oldPasswordInfo) && $newPassword === $newPasswordRepeat && $newPassword !== $oldPassword) {

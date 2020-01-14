@@ -9,7 +9,6 @@ require __DIR__ . '/../autoload.php';
 if (isset($_POST["editpost"])) {
 
     $edited = trim(filter_var($_POST["editpost"], FILTER_SANITIZE_STRING));
-
     $statement = $pdo->prepare("UPDATE posts SET content = :content WHERE id = :id");
 
     if (!$statement) {

@@ -53,4 +53,5 @@ if (isset($_POST["firstname"], $_POST["lastname"], $_POST["email"], $_POST["pass
         redirect("/signup.php");
     }
 }
+
 redirect("/");

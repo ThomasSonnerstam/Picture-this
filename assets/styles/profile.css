@@ -44,7 +44,7 @@
     margin: 0 0 2vh 0;
 }
 
-.hidden-button .like-image {
+.reactions .hidden-button .like-image {
     width: 32px;
     height: 32px;
 }
@@ -53,7 +53,7 @@
     display: flex;
 }
 
-.reaction-wrapper .comment-image {
+.post .reaction-wrapper .comment-image {
     width: 32px;
     height: 32px;
     margin-left: 2vw;

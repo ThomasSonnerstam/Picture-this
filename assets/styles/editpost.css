@@ -6,3 +6,64 @@
 .post h2 {
     margin-bottom: 3vh;
 }
+
+.your-posts .post img {
+    width: 90vw;
+    height: auto;
+}
+
+.your-posts .post textarea {
+    margin-right: 5vw;
+}
+
+.your-posts .post button {
+    margin-bottom: 3vh;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .your-posts .post img {
+        width: 70vw;
+        height: auto;
+    }
+
+    .your-posts .post textarea {
+        width: 70vw;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .your-posts .post img {
+        width: 60vw;
+        height: auto;
+    }
+
+    .your-posts .post textarea {
+        width: 60vw;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .your-posts .post img {
+        width: 50vw;
+        height: auto;
+    }
+
+    .your-posts .post textarea {
+        width: 50vw;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .your-posts .post img {
+        width: 40vw;
+        height: auto;
+    }
+
+    .your-posts .post textarea {
+        width: 40vw;
+    }
+}
