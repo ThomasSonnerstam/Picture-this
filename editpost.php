@@ -14,7 +14,6 @@ $editpost = $statement->fetch(PDO::FETCH_ASSOC);
 ?>
 
 <section class="your-posts">
-
     <div class="post">
 
         <h2>Edit post</h2>
@@ -28,7 +27,6 @@ $editpost = $statement->fetch(PDO::FETCH_ASSOC);
             <button type="submit">Update post</button>
 
         </form>
-
     </div>
 </section>
 

@@ -7,7 +7,6 @@ require __DIR__ . '/views/header.php';
 ?>
 
 <section class="signup-wrapper">
-
     <?php if (isset($_SESSION["errors"])) : ?>
         <p class="error">
             <?php $errors = $_SESSION["errors"];
@@ -25,7 +24,6 @@ require __DIR__ . '/views/header.php';
     </p>
 
     <form action="/app/users/signup.php" method="post">
-
         <label for="firstname">First Name</label>
         <input type="text" name="firstname" id="firstname" required>
 
@@ -39,9 +37,7 @@ require __DIR__ . '/views/header.php';
         <input type="password" name="password" id="password" required>
 
         <button class="create-account-button" type="submit">Create account</button>
-
     </form>
-
 </section>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

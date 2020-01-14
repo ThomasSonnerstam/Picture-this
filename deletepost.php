@@ -11,13 +11,11 @@ $statement->execute([
     ":id" => $_SESSION["user"]["id"],
     ":postid" => $_GET["id"]
 ]);
-
 $postinfo = $statement->fetch(PDO::FETCH_ASSOC);
 
 ?>
 
 <section class="your-posts">
-
     <div class="post">
 
         <h2>Edit post</h2>
@@ -31,7 +29,6 @@ $postinfo = $statement->fetch(PDO::FETCH_ASSOC);
             <button class="delete" type="submit">Delete post</button>
 
         </form>
-
     </div>
 </section>
 
