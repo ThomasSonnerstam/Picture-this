@@ -170,3 +170,59 @@ function getAllPostsFromFollowings(PDO $pdo, int $id): array
 
     return $allPostsFromFollowings;
 }
+
+/**
+ * Returns all comments from a post
+ * 
+ * @param PDO $pdo
+ * @param int $postId
+ * 
+ * @return array
+ */
+function getAllCommentsToAPost(PDO $pdo, int $postId): array
+{
+    $statement = $pdo->prepare('SELECT * FROM comments3 
+    JOIN users
+    ON comments3.user_id = users.id
+    WHERE post_id = :post_id'
+    );
+
+    // SELECT posts.id, posts.user_id, posts.image, posts.content 
+    // FROM posts 
+    // JOIN follows 
+    // ON posts.user_id = follows.user_id_that_is_followed
+    // WHERE follows.user_id_that_follows = :id 
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ":post_id" => $postId
+    ]);
+
+    $allComments = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allComments;
+}
+
+/**
+ * Returns post by id
+ *
+ * @param object $pdo
+ * @param int $id
+ * 
+ * @return array
+ */
+function getPostById(PDO $pdo, int $id): array
+{
+    $statement = $pdo->prepare("SELECT * FROM posts WHERE id = :id");
+
+    $statement->execute([
+        ":id" => $id
+    ]);
+
+    $post = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $post;
+}

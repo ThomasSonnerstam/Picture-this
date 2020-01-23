@@ -43,11 +43,7 @@
 
         <?php
         $userId = $_SESSION['user']['id'];
-
-        //var_dump(getAllPostsFromFollowings($pdo, $userId));
-
         $postsFromUsersFollowedByMe = getAllPostsFromFollowings($pdo, $userId);
-
         ?>
 
         <!--This will show if the user is not following anyone and their feed is empty-->
@@ -93,6 +89,8 @@
                 </form>
 
                 <p><?php echo $post["content"]; ?></p>
+
+                <a href="/comment.php?id=<?php echo $post["id"]; ?>" title="Comment page">Add a comment...</a>
 
                 <div class="post-line"></div>
             </div>
