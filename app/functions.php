@@ -32,3 +32,141 @@ function getUsersById(object $pdo): array
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     return $user;
 }
+
+/**
+ * Function to get the data from the user the post belongs to.
+ *
+ * @param PDO $pdo
+ * @param int $postUserId
+ * @return array
+ */
+function getUserOfPost(PDO $pdo, int $postUserId): array
+{
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+
+    $statement->execute([
+        ":id" => $postUserId
+    ]);
+
+    $postOwner = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $postOwner;
+}
+
+/**
+ * Function fetching user from GET
+ *
+ * @param PDO $pdo
+ * @param int $idFromGet
+ * @return array
+ */
+function fetchUserWithGet(PDO $pdo, int $idFromGet): array
+{
+    $statement = $pdo->prepare("SELECT * FROM users WHERE id = :id");
+
+    $statement->execute([
+        ":id" => $idFromGet
+    ]);
+
+    $userProfile = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $userProfile;
+}
+
+/**
+ * Checking if logged in user is following another user
+ * 
+ * @param PDO $pdo
+ * @param int $follower
+ * @param int $isFollowingUserId
+ * 
+ * @return array 
+ */
+function isFollowing(PDO $pdo, int $follower, int $isFollowingUserId)
+{
+    $statement = $pdo->prepare('SELECT * FROM follows WHERE user_id_that_follows = :user_id AND user_id_that_is_followed = :is_following_id');
+
+    $statement->execute([
+        ':user_id' => $follower,
+        ':is_following_id' => $isFollowingUserId
+    ]);
+
+    $isFollowed = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $isFollowed;
+}
+
+/**
+ * Returns all posts with user information
+ * 
+ * @param PDO $pdo
+ * 
+ * @return array
+ */
+function getAllPostsWithUserInfo(PDO $pdo): array
+{
+    $statement = $pdo->prepare('SELECT posts.id, posts.user_id, posts.image, posts.content, users.id, users.first_name, users.last_name, users.profile_picture FROM posts JOIN users ON posts.user_id = users.id ORDER BY random()');
+
+    $statement->execute();
+
+    $allPosts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allPosts;
+}
+
+/**
+ * Returns all posts from one user with user information 
+ * 
+ * @param PDO $pdo
+ * @param int $id
+ * 
+ * @return array
+ */
+function getPostsByUser(PDO $pdo, int $id): array
+{
+    $statement = $pdo->prepare('SELECT posts.id, posts.user_id, posts.image, posts.content, users.id, users.first_name, users.last_name, users.profile_picture FROM posts JOIN users ON posts.user_id = users.id WHERE posts.user_id = :id ORDER BY posts.id ASC');
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $id
+    ]);
+
+    $allPostsByUser = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allPostsByUser;
+}
+
+/**
+ * Returns all posts from users the user is following inlcuding his/her own posts
+ * 
+ * @param PDO $pdo
+ * @param int $id
+ * 
+ * @return array
+ */
+function getAllPostsFromFollowings(PDO $pdo, int $id): array
+{
+    $statement = $pdo->prepare(
+        'SELECT posts.id, posts.user_id, posts.image, posts.content 
+        FROM posts 
+        JOIN follows 
+        ON posts.user_id = follows.user_id_that_is_followed
+        WHERE follows.user_id_that_follows = :id 
+        ORDER BY posts.id ASC'
+    );
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $id
+    ]);
+
+    $allPostsFromFollowings = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $allPostsFromFollowings;
+}

@@ -1,0 +1,12 @@
+.user-profile__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+/* .user-profile__posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */

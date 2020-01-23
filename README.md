@@ -51,5 +51,3 @@ This is the database layout
 -   footer.php: L2 - This line calls to a script which doesn’t exist.
 -   account.php: L25 - This line triggers an error if $user[“profile-picture”] is not yet set. You could put this image tag inside an if($user[“profile-picture”]) statement to handle this case.
 -   app/users/delete.php: L16 - \$userInfo[“profile-picture”] may not be set when the account is deleted. You could handle this with an if statement as above.
-
-##test

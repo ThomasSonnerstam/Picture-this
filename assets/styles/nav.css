@@ -39,3 +39,7 @@ nav img {
     width: auto;
     margin: 0 5vw 0 0;
 }
+
+.active {
+    font-weight: bold;
+}

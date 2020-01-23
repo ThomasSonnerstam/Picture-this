@@ -66,6 +66,14 @@
     outline: none;
 }
 
+a.explore {
+    font-weight: 600;
+}
+
+a.explore:hover {
+    color: var(--orangey);
+}
+
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
     .write-new-post {
