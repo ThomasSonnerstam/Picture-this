@@ -90,6 +90,16 @@
 
                 <p><?php echo $post["content"]; ?></p>
 
+                <!--Post comments-->
+                <?php $comments = getAllCommentsToAPost($pdo, $post["id"]); ?>
+
+                <?php foreach ($comments as $comment) : ?>
+                    <div class="post__comments">
+                        <h5><?php echo $comment['first_name']; ?></h5>
+                        <p class="comments-text"><?php echo $comment['comment']; ?></p>
+                    </div>
+                <?php endforeach; ?>
+
                 <a href="/comment.php?id=<?php echo $post["id"]; ?>" title="Comment page">Add a comment...</a>
 
                 <div class="post-line"></div>

@@ -14,6 +14,10 @@
     justify-content: flex-start;
 }
 
+p.comments-text {
+    font-size: 12px;
+}
+
 .comments__previous {
     display: flex;
     justify-content: space-between;
@@ -34,10 +38,6 @@
 .comments__previous-edit {
     width: 20px;
     text-align: right;
-}
-
-.comments__previous-edit > a:hover {
-    background-color: rgba(246, 151, 4, 0.2);
 }
 
 .comments > form {

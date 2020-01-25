@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we add, edit, and delete comments in the database.
+// In this file we add comments to the database.
 
 if (isset($_POST['comment'])) {
     //die(var_dump($_POST));

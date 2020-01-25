@@ -15,9 +15,7 @@ $postId = $post['id'];
         <p><?php echo $post["content"]; ?></p>
     </div>
 
-    <?php $comments = getAllCommentsToAPost($pdo, $postId);
-    //print_r($comments);
-    ?>
+    <?php $comments = getAllCommentsToAPost($pdo, $postId); ?>
 
     <div class="comments">
         <!-- If there are no comments, message below will be displayed.-->
@@ -29,11 +27,11 @@ $postId = $post['id'];
             <div class="comments__previous">
                 <div class="comments__previous-content">
                     <h4><?php echo $comment['first_name']; ?></h4>
-                    <p><?php echo $comment['comment']; ?></p>
+                    <p class="comments-text"><?php echo $comment['comment']; ?></p>
                 </div>
                 <?php if ($comment['user_id'] == $_SESSION['user']['id']) : ?>
                     <div class="comments__previous-edit">
-                        <a href=""><img src="/assets/images/edit.svg" alt="Edit"></a>
+                        <a href="/edit-comment.php?id=<?php echo $comment['id']; ?>"><img src="/assets/images/edit.svg" alt="Edit comment"></a>
                     </div>
                 <?php endif; ?>
             </div>
