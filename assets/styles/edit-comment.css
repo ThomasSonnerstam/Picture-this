@@ -11,10 +11,6 @@
     justify-content: center;
 }
 
-.delete-comment-button {
-    border: 1px solid red;
-}
-
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .edit-comment-page > form {

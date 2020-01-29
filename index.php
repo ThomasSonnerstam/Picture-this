@@ -93,7 +93,7 @@
                 <!--Post comments-->
                 <?php $comments = getAllCommentsToAPost($pdo, $post["id"]); ?>
 
-                <?php foreach ($comments as $comment) : ?>
+                <?php foreach ($comments as $comment) : ?> 
                     <div class="post__comments">
                         <h5><?php echo $comment['first_name']; ?></h5>
                         <p class="comments-text"><?php echo $comment['comment']; ?></p>

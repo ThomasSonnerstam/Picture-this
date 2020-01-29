@@ -20,7 +20,9 @@ $postId = $post['id'];
     <div class="comments">
         <!-- If there are no comments, message below will be displayed.-->
         <?php if (!$comments) : ?>
-            <p>There are no comments on this post yet. Be the first to comment.</p>
+            <div class="comments__none">
+                <p>There are no comments on this post yet. Be the first to comment.</p>
+            </div>
         <?php endif; ?>
 
         <?php foreach ($comments as $comment) : ?>

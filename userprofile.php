@@ -15,7 +15,6 @@ $profileId = (int) $profile['id'];
 $profileFirstName = $profile['first_name'];
 $profileLastName = $profile['last_name'];
 $profileBio = $profile['biography'];
-var_dump($idFromGet);
 
 $userId = (int) $_SESSION['user']['id'];
 ?>

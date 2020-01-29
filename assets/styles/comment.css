@@ -14,6 +14,10 @@
     justify-content: flex-start;
 }
 
+.comments__none {
+    width: 90%;
+}
+
 p.comments-text {
     font-size: 12px;
 }
@@ -70,8 +74,4 @@ button.comment__button:hover {
         justify-content: center;
         width: 40%;
     }
-
-    /* .comments > form {
-        width: 40%;
-    } */
 }
