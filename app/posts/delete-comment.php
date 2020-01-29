@@ -21,8 +21,5 @@ if (isset($_POST['delete-comment'])) {
         ':userId' => $userId
     ]);
 
-    // $post = getCommentById($pdo, $commentId);
-    // $postId = $post['post_id'];
-
     redirect('/');
 }
