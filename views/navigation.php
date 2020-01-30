@@ -4,20 +4,24 @@
 
     <ul class="menu">
         <li>
-            <a href="/index.php">Home</a>
+            <a href="/index.php" class="<?php echo $_SERVER['SCRIPT_NAME'] === '/index.php' ? 'active' : ''; ?>">Home</a>
+        </li>
+
+        <li>
+            <a href="/explore.php" class="<?php echo $_SERVER['SCRIPT_NAME'] === '/explore.php' ? 'active' : ''; ?>">Explore</a>
         </li>
 
         <?php if (isset($_SESSION["user"])) : ?>
             <li>
-                <a class="login" href="/profile.php">Profile</a>
+                <a class="login <?php echo $_SERVER['SCRIPT_NAME'] === '/profile.php' ? 'active' : ''; ?>" href="/profile.php">Profile</a>
             </li>
         <?php else : ?>
             <li>
-                <a href="/signup.php">Sign Up</a>
+                <a href="/signup.php" class="<?php echo $_SERVER['SCRIPT_NAME'] === '/signup.php' ? 'active' : ''; ?>">Sign Up</a>
             </li>
 
             <li>
-                <a href="/login.php">Log in</a>
+                <a href="/login.php" class="<?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>">Log in</a>
             </li>
         <?php endif; ?>
     </ul>

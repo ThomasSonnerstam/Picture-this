@@ -17,7 +17,7 @@
 
 .homepage p {
     width: 90vw;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 /* NEW POSTS */
@@ -64,6 +64,28 @@
 
 .write-new-post:focus {
     outline: none;
+}
+
+a.explore {
+    font-weight: 600;
+}
+
+a.explore:hover {
+    color: var(--orangey);
+}
+
+.post__comments {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+
+.post__comments h5 {
+    margin-top: 1vh;
+    margin-right: 5px;
+    font-weight: bold;
+    word-break: keep-all;
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
